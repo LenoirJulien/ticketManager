@@ -29,17 +29,17 @@ class Ticket
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Projet", inversedBy="tickets")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Projet", inversedBy="ticket")
      */
     private $id_projet;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tracker", inversedBy="tickets")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tracker", inversedBy="ticket")
      */
     private $tracker;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TempsTickets", mappedBy="tempsTicket")
+     * @ORM\OneToMany(targetEntity="App\Entity\TempsTicket", mappedBy="idTicket")
      */
     private $ticket;
 

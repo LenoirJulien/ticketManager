@@ -24,7 +24,7 @@ class Tracker
     private $libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="tickets")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="tracker")
      */
     private $ticket;
 
