@@ -34,7 +34,7 @@ class Projet
     private $enCours;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="tickets")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="id_projet")
      */
     private $ticket;
 
