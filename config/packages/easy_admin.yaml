@@ -4,3 +4,12 @@ easy_admin:
        - App\Entity\Projet
        - App\Entity\Ticket
        - App\Entity\TempsTicket
+    # design:
+    #     assets:
+    #         # Load all bootstrap in public/easyadmin folder
+    #         css:
+    #             - 'bundles/easyadmin/bootstrap-all.css'
+    #         js:
+    #             - 'bundles/easyadmin/bootstrap-all.js'
+    # show:
+    #     max_results: 30

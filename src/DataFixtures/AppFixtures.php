@@ -2,14 +2,24 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\User;
 use App\Entity\Projet;
 use App\Entity\Ticket;
 use App\Entity\Tracker;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         $project  = new Projet();
@@ -42,5 +52,18 @@ class AppFixtures extends Fixture
         $manager->persist($ticket);
 
         $manager->flush();
+
+        $user = new User();
+        $user->setEmail('julien.lenoir@imie.fr')
+            ->setPassword($this->passwordEncoder->encodePassword(
+                $user,
+                'testimie'
+            ))
+        ;
+
+        $manager->persist($user);
+
+        $manager->flush();
+
     }
 }
