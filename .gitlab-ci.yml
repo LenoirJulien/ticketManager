@@ -1,0 +1,22 @@
+stages:
+  - build
+  - test
+  - quality
+  - push
+  - update-staging
+
+build:
+  stage: build
+  image: golang
+  before_script:
+    - go mod download
+  script:
+    - go build -o /go/bin/app
+
+test:
+  stage: test
+  image: golang
+  before_script:
+    - go mod download
+  script:
+    - go test ./...
